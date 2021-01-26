@@ -9,7 +9,7 @@ public class Mock {
     }
 
     public void say() {
-        System.out.println("i am gay 4.0  ");
+        System.out.println("i am gay 5.0  ");
     }
 
 }

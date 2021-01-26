@@ -1,11 +1,6 @@
 package io.github.pleuvoir;
 
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.sql.Time;
-import java.util.concurrent.TimeUnit;
-import javax.sound.midi.Soundbank;
 
 /**
  * 启动类
@@ -18,7 +13,7 @@ public class Bootstrap {
     public static void main(String[] args) throws Exception {
         //初始化类加载器
         DynamicClassLoader classLoader = new DynamicClassLoader();
-        classLoader.addURLs("/Users/pleuvoir/dev/space/git/hot-deploy/target/classes/io/github/pleuvoir");
+        classLoader.addURLs(Const.HOT_DEPLOY_DIRECTORY);
         classLoader.load();
         start0(classLoader);
     }

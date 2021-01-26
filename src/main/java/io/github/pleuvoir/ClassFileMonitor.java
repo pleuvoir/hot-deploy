@@ -8,7 +8,7 @@ import org.apache.commons.io.monitor.FileAlterationMonitor;
 import org.apache.commons.io.monitor.FileAlterationObserver;
 
 /**
- * 热部署服务
+ * 文件监听
  *
  * @author <a href="mailto:fuwei@daojia-inc.com">pleuvoir</a>
  */
@@ -32,7 +32,7 @@ public class ClassFileMonitor {
             try {
                 //初始化类加载器
                 DynamicClassLoader classLoader = new DynamicClassLoader();
-                classLoader.addURLs("/Users/pleuvoir/dev/space/git/hot-deploy/target/classes/io/github/pleuvoir");
+                classLoader.addURLs(Const.HOT_DEPLOY_DIRECTORY);
                 classLoader.load();
 
                 Bootstrap.start0(classLoader);

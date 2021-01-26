@@ -54,15 +54,11 @@ public class DynamicClassLoader extends URLClassLoader {
     public void addURLs(String directory) throws IOException {
         Collection<File> files = FileUtils.listFiles(
                 new File(directory),
-                new String[]{"jar", "class"},
+                new String[]{"class"},
                 true);
         for (File file : files) {
-            final String path = file.getCanonicalPath();
             String className = file2ClassName(file);
-            final File f = fileCache.putIfAbsent(className, file);
-            if (f == null) {
-                super.addURL(new URL("file", "", path));
-            }
+            fileCache.putIfAbsent(className, file);
         }
     }
 
